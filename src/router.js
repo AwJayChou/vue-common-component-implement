@@ -12,6 +12,11 @@ export const constRoutes = [
     hidden: true // 导航菜单忽略该项
   },
   {
+    path: "/detail",
+    component: () => import("@/views/Detail"),
+    hidden: true // 导航菜单忽略该项
+  },
+  {
     path: "/",
     component: import(/* webpackChunkName: "home" */ "@/views/Home.vue"),// 应用布局
     // redirect: "/home",
@@ -51,9 +56,9 @@ export const asyncRoutes = [
     ]
   }
 ];
-
+console.log(' URL => ', process.env.BASE_URL)
 export default new Router({
   // mode: "history",
-  base: process.env.BASE_URL,
+  // base: process.env.BASE_URL,
   routes: constRoutes
 });

@@ -14,6 +14,12 @@
         </svg> -->
         <svg-icon icon-class="wx"></svg-icon>
       About</router-link>
+      <router-link to="#/detail">
+        <!-- <svg>
+          <use xlink:href="#icon-wx"></use>
+        </svg> -->
+        <svg-icon icon-class="wx"></svg-icon>
+      Detail</router-link>
     </div>
     <!-- 插座 -->
     <router-view/>
