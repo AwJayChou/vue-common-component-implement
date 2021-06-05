@@ -56,7 +56,6 @@ export const asyncRoutes = [
     ]
   }
 ];
-console.log(' URL => ', process.env.BASE_URL)
 export default new Router({
   // mode: "history",
   // base: process.env.BASE_URL,

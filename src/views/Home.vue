@@ -1,16 +1,12 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <div v-for="item in items" :key="item.id">
       <router-link :to="`/detail/${item.id}`">{{ item.name }}</router-link>
     </div>
-    <!-- <router-view></router-view> -->
-    <!-- <div>冲啊，手榴弹扔了{{$store.state.a.count}}</div> -->
-    <div>冲啊，手榴弹扔了{{ $store.state.count }}</div>
-    <!-- <div>还剩{{$store.getters['a/left']}}个</div> -->
-    <button @click="add">扔一个</button>
-    <button @click="asyncAdd">蓄力扔一个</button>
+    <div>count: {{ $store.state.count }}</div>
+    <button @click="add">add count</button>
+    <button @click="asyncAdd">async 1 second add</button>
   </div>
 </template>
 
@@ -23,8 +19,8 @@ export default {
   data() {
     return {
       items: [
-        { id: 1, name: "web全栈" },
-        { id: 2, name: "数据分析工程师" },
+        { id: 1, name: "shop-list-1" },
+        { id: 2, name: "shop-list-2" },
       ],
     };
   },
@@ -33,7 +29,6 @@ export default {
   },
   mounted() {
     const timer = setInterval(() => {
-      console.log(1);
     }, 1000);
     this.$once("hook:beforeDestroy", () => {
       clearInterval(timer);
@@ -44,16 +39,17 @@ export default {
       // mutation
       // this.$store.commit('increment')
       // action
-      this.$store.dispatch("increment").then((result) => {
-        if (!result) {
-          alert("投掷失败，没货啦！");
-        }
-      });
+      this.$store.dispatch("a/increment")
+      // .then((result) => {
+      //   if (!result) {
+      //     alert("add success！");
+      //   }
+      // });
     },
     asyncAdd() {
-      this.$store.dispatch("a/asyncIncrement").then((result) => {
+      this.$store.dispatch("asyncIncrement").then((result) => {
         if (!result) {
-          alert("投掷失败，没货啦！");
+          alert("add fail！");
         }
       });
     },

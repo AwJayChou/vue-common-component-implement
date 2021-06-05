@@ -45,8 +45,8 @@ export default {
 
       this.$refs["loginForm"].validate(isValid => {
         const notice = create(Notice, {
-          title: "杨哥喊你来搬砖",
-          message: isValid ? "登录去！" : "有错改去！"
+          title: "info",
+          message: isValid ? "登录！" : "请修改！"
         });
         notice.show();
         setTimeout(() => {

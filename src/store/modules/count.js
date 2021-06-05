@@ -14,12 +14,12 @@ export default {
       }
     },
     actions: { // 动作：业务逻辑
-      increment({getters,state,commit,dispatch}) {
+      increment({getters,commit}) {
          if (getters.left > 0) {
            commit('increment')
-           return true;
+           return Promise.resolve(true);
          }
-         return false
+         return Promise.resolve(false)
       },
       asyncIncrement({dispatch}) {
         return new Promise(resolve => {
